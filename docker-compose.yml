@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+
+  backend:
+    build:
+      context: ./docuchat
+      dockerfile: ../Dockerfile.backend
+    container_name: docuchat-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/app/chroma_data
+      - sqlite_data:/app/sqlite
+    env_file:
+      - ./docuchat/.env
+    environment:
+      - SENTENCE_TRANSFORMERS_HOME=/app/models
+      - DATABASE_URL=sqlite:////app/sqlite/docuchat.db
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./docuchat-frontend
+      dockerfile: ../Dockerfile.frontend
+    container_name: docuchat-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  chroma_data:
+  sqlite_data:

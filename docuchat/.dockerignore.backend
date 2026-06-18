@@ -1,0 +1,14 @@
+# Backend .dockerignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.git
+.gitignore
+chroma_data/
+docuchat.db
+*.log
+.venv/
+venv/
+node_modules/
