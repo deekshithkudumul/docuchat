@@ -13,12 +13,14 @@ docuchat.db
 chroma_data/
 sqlite/
 
+# AI model cache — this is the models/ we want to ignore (downloaded weights)
+# NOT the docuchat/models/ Python package folder
+docuchat/models/all-MiniLM-L6-v2/
+docuchat/models/sentence-transformers/
+
 # Node
 node_modules/
 dist/
-
-# Models cache
-models/
 
 # OS
 .DS_Store
