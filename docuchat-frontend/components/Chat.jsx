@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-const API = "http://127.0.0.1:8000";
+const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 function Message({ msg }) {
   if (msg.role === "user") return <div className="msg msg-user"><div className="msg-bubble">{msg.text}</div></div>;
   return (

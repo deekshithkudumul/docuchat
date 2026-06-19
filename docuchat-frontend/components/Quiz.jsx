@@ -1,5 +1,5 @@
 import { useState } from "react";
-const API = "http://127.0.0.1:8000";
+const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 function ScoreRing({ score }) {
   const color = score >= 9 ? "#22c55e" : score >= 7 ? "#84cc16" : score >= 5 ? "#f59e0b" : score >= 3 ? "#f97316" : "#ef4444";
   return <div className="score-ring" style={{ "--score-color": color }}><div className="score-num" style={{ color }}>{score}</div><div className="score-denom">/10</div></div>;
